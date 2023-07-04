@@ -75,7 +75,7 @@ def update_availability():
             save_data(data)
             break
 
-    return redirect('/menu')
+    return jsonify({"msg" : "Dish status has been updated successfully!!", "menu" : menu})
 
 
 @app.route('/take_order', methods=['POST'])
@@ -94,7 +94,7 @@ def take_order():
      new_order = {
         'id': order_id,
         'customer_name': request_data['name'],
-        'dishes': request_data['id'],
+        'dishes': request_data['dishes'],
         'price' : price,
         'status': 'received'
      }

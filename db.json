@@ -1,27 +1,27 @@
 {
     "menu": [
         {
-            "id": "1",
-            "name": "Cheeseburger",
-            "price": 9.99,
-            "availability": true
-        },
-        {
             "id": "2",
             "name": "Margherita Pizza",
             "price": 12.99,
-            "availability": true
-        },
-        {
-            "id": "3",
-            "name": "Chicken Alfredo Pasta",
-            "price": 15.99,
             "availability": false
         },
         {
-            "id": "4",
-            "name": "Caesar Salad",
-            "price": 8.99,
+            "id": "36e09027-bb94-4b74-ae35-de01ce737fe5",
+            "name": "samosa",
+            "price": "40",
+            "availability": true
+        },
+        {
+            "id": "cb4ffbd6-9314-48e9-a81d-4ad340b43292",
+            "name": "Biryani",
+            "price": "100",
+            "availability": true
+        },
+        {
+            "id": "7ccaecf4-99ca-4268-801b-16385a5bd763",
+            "name": "roti-curry",
+            "price": "50",
             "availability": true
         }
     ],
@@ -31,7 +31,28 @@
             "customer_name": "koushik",
             "dishes": "1",
             "price": 9.99,
-            "status": "Pending"
+            "status": "Delivered"
+        },
+        {
+            "id": "15bc13f3-2a07-474c-a85a-3b00e5a8cef7",
+            "customer_name": "koushik",
+            "dishes": "2",
+            "price": 12.99,
+            "status": "Received"
+        },
+        {
+            "id": "5a795888-054e-4a51-a021-d4db6f54bebb",
+            "customer_name": "nikhil",
+            "dishes": "7ccaecf4-99ca-4268-801b-16385a5bd763",
+            "price": "50",
+            "status": "Received"
+        },
+        {
+            "id": "cb6af483-6fd6-470a-b1b1-62c575bf0f07",
+            "customer_name": "koushik",
+            "dishes": "samosa",
+            "price": "40",
+            "status": "received"
         }
     ]
 }
