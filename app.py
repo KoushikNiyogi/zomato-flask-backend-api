@@ -96,7 +96,7 @@ def take_order():
         'customer_name': request_data['name'],
         'dishes': request_data['dishes'],
         'price' : price,
-        'status': 'received'
+        'status': 'Received'
      }
 
      data['orders'].append(new_order)
