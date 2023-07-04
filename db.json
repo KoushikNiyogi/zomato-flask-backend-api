@@ -1,0 +1,37 @@
+{
+    "menu": [
+        {
+            "id": "1",
+            "name": "Cheeseburger",
+            "price": 9.99,
+            "availability": true
+        },
+        {
+            "id": "2",
+            "name": "Margherita Pizza",
+            "price": 12.99,
+            "availability": true
+        },
+        {
+            "id": "3",
+            "name": "Chicken Alfredo Pasta",
+            "price": 15.99,
+            "availability": false
+        },
+        {
+            "id": "4",
+            "name": "Caesar Salad",
+            "price": 8.99,
+            "availability": true
+        }
+    ],
+    "orders": [
+        {
+            "id": "2950539e-6af3-40dc-8a5d-747d79c1a132",
+            "customer_name": "koushik",
+            "dishes": "1",
+            "price": 9.99,
+            "status": "Pending"
+        }
+    ]
+}
