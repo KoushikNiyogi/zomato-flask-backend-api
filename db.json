@@ -23,6 +23,12 @@
             "name": "roti-curry",
             "price": "50",
             "availability": true
+        },
+        {
+            "id": "ec4b1313-694e-4bd4-82e4-d895446f3956",
+            "name": "veg biryani",
+            "price": 40,
+            "availability": false
         }
     ],
     "orders": [
@@ -31,7 +37,9 @@
             "customer_name": "koushik",
             "dishes": "1",
             "price": 9.99,
-            "status": "Delivered"
+            "status": "Delivered",
+            "rating": 4.5,
+            "review": "food was good"
         },
         {
             "id": "15bc13f3-2a07-474c-a85a-3b00e5a8cef7",
@@ -53,6 +61,76 @@
             "dishes": "samosa",
             "price": "40",
             "status": "Received"
+        },
+        {
+            "id": "6d7f2fd7-2203-4470-9759-76e752e45843",
+            "customer_name": "koushik",
+            "dishes": "biryani",
+            "price": 40,
+            "status": "Ready for Delivery"
         }
-    ]
+    ],
+    "users" : [
+        {
+          "id": "b3b8e86e-7e16-4c72-83a7-9562a8a3ef5e",
+          "name": "Aarav Kumar",
+          "email": "aarav@example.com",
+          "password": "123456"
+        },
+        {
+          "id": "670f4139-3b17-4376-99eb-c3ee409cdd57",
+          "name": "Aanya Sharma",
+          "email": "aanya@example.com",
+          "password": "abcdef"
+        },
+        {
+          "id": "cf1c9f77-1f75-4e97-b0a3-3988b751ae6a",
+          "name": "Advait Patel",
+          "email": "advait@example.com",
+          "password": "qwerty"
+        },
+        {
+          "id": "fcda3a1d-2d4f-419b-92f1-38d5362c26af",
+          "name": "Aishani Singh",
+          "email": "aishani@example.com",
+          "password": "password"
+        },
+        {
+          "id": "f70a7d74-6b35-4e77-8353-97f39d02a42f",
+          "name": "Aryan Gupta",
+          "email": "aryan@example.com",
+          "password": "hello123"
+        },
+        {
+          "id": "d2d95f2e-47b2-4486-b570-6d549032bc4f",
+          "name": "Avni Verma",
+          "email": "avni@example.com",
+          "password": "welcome"
+        },
+        {
+          "id": "431abec4-38d2-4c4f-b749-7e8098a604e3",
+          "name": "Dev Khanna",
+          "email": "dev@example.com",
+          "password": "test123"
+        },
+        {
+          "id": "3e7e7e68-1c8d-40ff-87fd-076d1eecc331",
+          "name": "Esha Patel",
+          "email": "esha@example.com",
+          "password": "letmein"
+        },
+        {
+          "id": "cfa0cace-f089-415f-87d7-4a39996fc769",
+          "name": "Kabir Malhotra",
+          "email": "kabir@example.com",
+          "password": "pass1234"
+        },
+        {
+          "id": "b788b5d0-0d22-4295-8a7d-8e83e0fe32e5",
+          "name": "Zara Bhatnagar",
+          "email": "zara@example.com",
+          "password": "abcd1234"
+        }
+      ]
+      
 }
