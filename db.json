@@ -54,28 +54,6 @@
             "dishes": "7ccaecf4-99ca-4268-801b-16385a5bd763",
             "price": "50",
             "status": "Received"
-        },
-        {
-            "id": "cb6af483-6fd6-470a-b1b1-62c575bf0f07",
-            "customer_name": "koushik",
-            "dishes": "samosa",
-            "price": "40",
-            "status": "Received"
-        },
-        {
-            "id": "6d7f2fd7-2203-4470-9759-76e752e45843",
-            "customer_name": "koushik",
-            "dishes": "biryani",
-            "price": 40,
-            "status": "Delivered"
-        },
-        {
-            "id": "7aad8430-d24a-49c0-a53d-5069db43989f",
-            "customer_name": "Aarav Kumar",
-            "dishes": "roti-curry",
-            "price": "50",
-            "status": "Received",
-            "userid": "b3b8e86e-7e16-4c72-83a7-9562a8a3ef5e"
         }
     ],
     "users": [
