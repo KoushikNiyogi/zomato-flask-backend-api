@@ -8,10 +8,11 @@ import openai
 import requests
 
 app = Flask(__name__)
+CORS(app)
 app.config['SECRET_KEY'] = 'tea58/BUCK/MAG'
 OPENAI_API_KEY = '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'
 socketio = SocketIO(app, async_mode='eventlet')
-CORS(app, origins='*')
+
 DB_FILE = 'db.json'
 
 
@@ -155,7 +156,8 @@ def take_order():
         'customer_name': request_data['name'],
         'dishes': request_data['dishes'],
         'price' : price,
-        'status': 'Received'
+        'status': 'Received',
+        'userid' : request_data["userid"]
      }
 
      data['orders'].append(new_order)
