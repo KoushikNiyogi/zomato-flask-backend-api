@@ -157,7 +157,7 @@ def take_order():
         'dishes': request_data['dishes'],
         'price' : price,
         'status': 'Received',
-        'dishid' : request_data["disid"],
+        'dishid' : request_data["id"],
         'userid' : request_data["userid"]
      }
 
@@ -197,18 +197,19 @@ def review_orders():
     orders = data['orders']
     return jsonify({'orders': orders})
 
-@app.route('/add_review/<order_id>', methods=['PATCH'])
-def add_review(order_id):
-    request_data = request.get_json()
+@app.route('/reviews/<id>', methods=['POST'])
+def add_reviews(id):
     data = load_data()
-    orders = data['orders']
-    for order in orders:
-        if order['id'] == order_id:
-            order['rating'] = request_data['rating']
-            order['review'] = request_data['review']
-            save_data(data)
-            return jsonify({'msg': 'Review added successfully'})
-    return jsonify({"msg" : 'Order not found!!'})
+    menu = data['menu']
+    request_data = request.get_json()
+    
+    for dish in menu:
+        if dish['id'] == request_data[id]:
+         dish['reviews'].append(request_data.review)
+         dish['ratings'].append(request_data.rating)
+        return jsonify(dish), 200
+    else:
+        return jsonify({'error': 'Invalid review or rating'}), 400
 
 @app.route('/chatbot', methods=['POST'])
 def chatbot():
