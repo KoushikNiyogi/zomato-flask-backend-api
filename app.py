@@ -10,7 +10,7 @@ import requests
 app = Flask(__name__)
 CORS(app)
 app.config['SECRET_KEY'] = 'tea58/BUCK/MAG'
-OPENAI_API_KEY = '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'
+OPENAI_API_KEY = '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'
 socketio = SocketIO(app, async_mode='eventlet')
 
 DB_FILE = 'db.json'
