@@ -55,7 +55,6 @@ def get_chatbot_response(query):
     payload = {
         'prompt': prompt,
         'max_tokens': 100,
-        'model': 'gpt-3.5-turbo-0301'
     }
     
     headers = {
@@ -64,7 +63,7 @@ def get_chatbot_response(query):
     }
     
     response = requests.post(
-        'https://api.openai.com/v1/engines/davinci-codex/completions',
+        'https://api.openai.com/v1/engines/text-davinci-003/completions',
         data=json.dumps(payload),
         headers=headers
     )
