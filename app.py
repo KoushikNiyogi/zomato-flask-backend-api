@@ -6,11 +6,13 @@ import uuid
 import os
 import openai
 import requests
+from dotenv import load_dotenv
 
 app = Flask(__name__)
-CORS(app)
+CORS(app,origins="*")
+load_dotenv()
 app.config['SECRET_KEY'] = 'tea58/BUCK/MAG'
-OPENAI_API_KEY = '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'
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 socketio = SocketIO(app, async_mode='eventlet')
 
 DB_FILE = 'db.json'
