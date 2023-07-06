@@ -10,7 +10,15 @@
             "id": "36e09027-bb94-4b74-ae35-de01ce737fe5",
             "name": "samosa",
             "price": "40",
-            "availability": true
+            "availability": true,
+            "review": [
+                "average",
+                "good food"
+            ],
+            "rating": [
+                3,
+                4
+            ]
         },
         {
             "id": "cb4ffbd6-9314-48e9-a81d-4ad340b43292",
@@ -22,7 +30,15 @@
             "id": "7ccaecf4-99ca-4268-801b-16385a5bd763",
             "name": "roti-curry",
             "price": "50",
-            "availability": true
+            "availability": true,
+            "review": [
+                "BAD",
+                "Good"
+            ],
+            "rating": [
+                1,
+                4
+            ]
         },
         {
             "id": "ec4b1313-694e-4bd4-82e4-d895446f3956",
@@ -80,15 +96,6 @@
             "price": "50",
             "status": "Received",
             "dishid": "7ccaecf4-99ca-4268-801b-16385a5bd763",
-            "userid": "b3b8e86e-7e16-4c72-83a7-9562a8a3ef5e"
-        },
-        {
-            "id": "3cce3100-7499-4534-9999-aa2cbf166bc7",
-            "customer_name": "Aarav Kumar",
-            "dishes": "samosa",
-            "price": "40",
-            "status": "Received",
-            "dishid": "36e09027-bb94-4b74-ae35-de01ce737fe5",
             "userid": "b3b8e86e-7e16-4c72-83a7-9562a8a3ef5e"
         }
     ],

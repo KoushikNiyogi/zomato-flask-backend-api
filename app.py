@@ -10,7 +10,7 @@ import requests
 app = Flask(__name__)
 CORS(app)
 app.config['SECRET_KEY'] = 'tea58/BUCK/MAG'
-OPENAI_API_KEY = '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'
+OPENAI_API_KEY = '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'
 socketio = SocketIO(app, async_mode='eventlet')
 
 DB_FILE = 'db.json'
@@ -48,12 +48,12 @@ def handle_update_order_status(data):
     emit('order_status_updated', {'order_id': order_id, 'status': updated_status}, broadcast=True)
 
 def get_chatbot_response(query):
-    print(query)
-    prompt = f"User: {query}\nChatbot: Hi! How can I assist you today?\nUser: {query}\nChatbot:\n- What are your operation hours?|Our operation hours are from 9 AM to 6 PM.\n- What is the status of my order?|Please provide your order ID, and we will check the status for you.\n- What is your most popular dish?|Our most popular dish is the Spicy Chicken Pasta.\n\nUser:"
+    prompt = f"User: {query}\nChatbot: Hi! How can I assist you today?\nUser: {query}\nChatbot:\n- How can I place an order for food?|To place an order for food, you can browse our menu and select the items you'd like to order. Then, proceed to the checkout and provide the necessary details to complete the order.\n- What are the available options for ordering food?|We offer various options for ordering food, including online ordering through our website or mobile app, as well as phone-in orders.\n- Is there a delivery service for food orders?|Yes, we provide delivery service for food orders. Simply provide your delivery address during the ordering process, and our delivery team will ensure your food is delivered to your doorstep.\n- How long does it take to receive the food after placing an order?|The delivery time can vary depending on factors such as distance and order volume. However, we strive to deliver orders as quickly as possible, usually within 30-45 minutes.\n- What is the process for making changes to my food order?|If you need to make changes to your food order, please contact our customer support team as soon as possible. They will assist you with the necessary modifications.\n- Are there any special instructions or requirements for ordering food?|If you have any special instructions or specific requirements for your food order, such as dietary restrictions or allergen concerns, please mention them while placing your order. We'll do our best to accommodate your needs.\n- Can I customize my food order with specific preferences or dietary restrictions?|Certainly! We offer customization options for our food orders. You can specify your preferences and dietary restrictions during the ordering process, and we'll prepare your food accordingly.\n- What payment methods are accepted for food orders?|We accept various payment methods, including credit cards, debit cards, and online payment platforms like PayPal. Cash on delivery is also available in certain areas.\n- Is there a minimum order requirement for delivery?|Yes, we have a minimum order requirement for delivery. The specific minimum order amount may vary based on your location. Please check the details during the ordering process.\n- How can I track the status of my food order?|Once you've placed your order, you'll receive an order confirmation with a tracking number. You can use this tracking number to monitor the status of your order through our website or mobile app.\n\nUser:"
     
     payload = {
         'prompt': prompt,
-        'max_tokens': 100
+        'max_tokens': 100,
+        'model': 'gpt-3.5-turbo-0301'
     }
     
     headers = {
@@ -62,7 +62,7 @@ def get_chatbot_response(query):
     }
     
     response = requests.post(
-        'https://api.openai.com/v1/engines/text-davinci-003/completions',
+        'https://api.openai.com/v1/engines/davinci-codex/completions',
         data=json.dumps(payload),
         headers=headers
     )
@@ -197,19 +197,27 @@ def review_orders():
     orders = data['orders']
     return jsonify({'orders': orders})
 
-@app.route('/reviews/<id>', methods=['POST'])
+@app.route('/reviews/<id>', methods=['PATCH'])
 def add_reviews(id):
     data = load_data()
     menu = data['menu']
     request_data = request.get_json()
-    
+    flag = False
     for dish in menu:
-        if dish['id'] == request_data[id]:
-         dish['reviews'].append(request_data.review)
-         dish['ratings'].append(request_data.rating)
-        return jsonify(dish), 200
+        if dish['id'] == id:
+          if 'review' in dish and 'rating' in dish:
+                dish['review'].append(request.json['review'])
+                dish['rating'].append(int(request.json['rating']))
+          else:
+                dish['review'] = [request_data['review']]
+                dish['rating'] = [int(request_data['rating'])]
+          flag =True
+          save_data(data)
+          break
+    if flag == True:    
+        return jsonify({"msg" : "Review has been added"}), 200
     else:
-        return jsonify({'error': 'Invalid review or rating'}), 400
+        return jsonify({'msg': 'Invalid review or rating'}), 400
 
 @app.route('/chatbot', methods=['POST'])
 def chatbot():
