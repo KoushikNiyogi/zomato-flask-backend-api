@@ -12,11 +12,11 @@ app = Flask(__name__)
 CORS(app,origins="*")
 load_dotenv()
 app.config['SECRET_KEY'] = 'tea58/BUCK/MAG'
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
 socketio = SocketIO(app, async_mode='eventlet')
 
 DB_FILE = 'db.json'
-
+print(OPENAI_API_KEY);
 
 def load_data():
     try:
